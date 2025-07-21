@@ -50,9 +50,6 @@ public class DemoQABookStoreTest extends TestBase{
 	    
 	    // Assert the book is found, else fail the test
 	    Assert.assertTrue(bookFound, "Book 'Learning JavaScript Design Patterns' not found in search results.");
-	    
-	    // If found, proceed to get book details
-	    searchResultPage.bookDetails();
 	   
 	    // Logout
 	    userHomePage.logOut();

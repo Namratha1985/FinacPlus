@@ -36,26 +36,26 @@ public class SearchResultPage extends TestBase{
                 bookFound = true;     
                 bookDetails.put("Title", searchTableCells.get(1).getText());
                 bookDetails.put("Author", searchTableCells.get(2).getText());
-                bookDetails.put("Publisher", searchTableCells.get(3).getText());           
+                bookDetails.put("Publisher", searchTableCells.get(3).getText());
+                // If found, proceed to get book details
+                BufferedWriter writer;
+				try {
+					writer = new BufferedWriter(new FileWriter("BookDetails.txt"));
+					for (Map.Entry<String, String> entry : bookDetails.entrySet()) {
+						System.out.println(entry.getKey() + " : " + entry.getValue());
+	                    writer.write(entry.getKey() + " : " + entry.getValue());
+	                    writer.newLine();  // Adds a line break
+	                }
+					 writer.flush();
+				} catch (IOException e) {
+				
+					e.printStackTrace();
+				}   			
                 break;
             }
         }
         return bookFound;
     }
 	
-	public void bookDetails() {
-         BufferedWriter writer;
-		try {
-			writer = new BufferedWriter(new FileWriter("BookDetails.txt"));
-			for (Map.Entry<String, String> entry : bookDetails.entrySet()) {
-                writer.write(entry.getKey() + " : " + entry.getValue());
-                writer.newLine(); 
-			}
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}        
-        
-    }
 
 }
