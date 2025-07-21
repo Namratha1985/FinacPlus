@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-07-21T19:57:10 IST" name="Default suite" finished-at="2025-07-21T19:57:24 IST" duration-ms="13850">
+    <groups>
+    </groups>
+    <test started-at="2025-07-21T19:57:10 IST" name="Default test" finished-at="2025-07-21T19:57:24 IST" duration-ms="13850">
+      <class name="ui.com.qa.tests.DemoQABookStoreTest">
+        <test-method is-config="true" signature="setup()[pri:0, instance:ui.com.qa.tests.DemoQABookStoreTest@6bb2d00b]" started-at="2025-07-21T19:57:10 IST" name="setup" finished-at="2025-07-21T19:57:16 IST" duration-ms="5382" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="bookStoreSearchTest()[pri:0, instance:ui.com.qa.tests.DemoQABookStoreTest@6bb2d00b]" started-at="2025-07-21T19:57:16 IST" name="bookStoreSearchTest" finished-at="2025-07-21T19:57:22 IST" duration-ms="6278" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- bookStoreSearchTest -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:ui.com.qa.tests.DemoQABookStoreTest@6bb2d00b]" started-at="2025-07-21T19:57:22 IST" name="tearDown" finished-at="2025-07-21T19:57:24 IST" duration-ms="2114" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- ui.com.qa.tests.DemoQABookStoreTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
