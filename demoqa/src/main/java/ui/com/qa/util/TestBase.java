@@ -1,12 +1,11 @@
 package ui.com.qa.util;
 
-import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.time.Duration;
 import java.util.Properties;
 import org.openqa.selenium.By;
-import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -22,10 +21,9 @@ public class TestBase {
 
 	public static WebDriver driver;
 	public static Properties prop;
-	private Object executeScript;
 
 	/**
-	 * This mehtod is used to initialize the driver on the basis of given browser
+	 * This method is used to initialize the driver on the basis of given browser
 	 * 
 	 * @param browser
 	 * @return This returns the driver
@@ -34,7 +32,7 @@ public class TestBase {
 		
 		try {
 			prop = new Properties();
-			FileInputStream fis = new FileInputStream("src/main/resources/com/qa/properties/config.properties");
+			InputStream fis = getClass().getClassLoader().getResourceAsStream("com/qa/properties/config.properties");
 			prop.load(fis);
 			
 		}catch(IOException e) {
@@ -46,21 +44,16 @@ public class TestBase {
 		String browserName = prop.getProperty("browser");
 		System.out.println("browser name is: " + browserName);
 		if (browserName.equalsIgnoreCase("chrome")) {
-			driver = new ChromeDriver();
-			driver.manage().window().maximize();
-			launchUrl(prop.getProperty("url"));
-		
+			driver = new ChromeDriver();	
 		} else if (browserName.equalsIgnoreCase("firefox")) {
-			System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir")+ "/drivers/geckodriver.exe");
 		    driver = new FirefoxDriver();
 		} else {
 			System.out.println("please pass the correct browser: " + browserName);
 		}
-
+		driver.manage().window().maximize();
+		launchUrl(prop.getProperty("url"));
 		return driver;
 	}
-
-
 
 	public void launchUrl(String url) {
 		if (url == null) {
