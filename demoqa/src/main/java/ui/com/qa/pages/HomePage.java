@@ -2,12 +2,15 @@ package ui.com.qa.pages;
 
 import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import ui.com.qa.util.TestBase;
 
 public class HomePage extends TestBase{
+	
+	private WebDriver  driver;
 	
 	@FindBy(xpath = "//h5[text()='Book Store Application']")
 	WebElement bookStoreTile;
@@ -16,7 +19,8 @@ public class HomePage extends TestBase{
 	WebElement loginButton;
 		
 	//Initializing page objects
-	public HomePage() {
+	public HomePage(WebDriver  driver) {
+		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
 	
@@ -34,7 +38,7 @@ public class HomePage extends TestBase{
 		if (isElementPresent(loginButton)) {
 			loginButton.click();		
 		}
-		return new LoginPage();
+		return new LoginPage(driver);
 	
 	}
 

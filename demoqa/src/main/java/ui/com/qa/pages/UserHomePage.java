@@ -1,6 +1,8 @@
 package ui.com.qa.pages;
 
 import java.time.Duration;
+
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -8,6 +10,7 @@ import ui.com.qa.util.TestBase;
 import ui.com.qa.util.TestUtil;
 
 public class UserHomePage extends TestBase{
+	private WebDriver  driver;
 	@FindBy(id = "userName-value")
 	WebElement userNameDisplay;
 	
@@ -21,7 +24,8 @@ public class UserHomePage extends TestBase{
 	WebElement searchBox;
 	
 	//Initializing page objects
-	public UserHomePage() {
+	public UserHomePage(WebDriver  driver) {
+		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
 	
@@ -33,7 +37,7 @@ public class UserHomePage extends TestBase{
 		waitForPageToLoad(driver);
 		searchBox.sendKeys(bookName);
 		waitForPageToLoad(driver);
-		return new SearchResultPage();
+		return new SearchResultPage(driver);
 	}
 
     // Method to return userNameDisplay

@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -14,6 +15,7 @@ import ui.com.qa.util.TestBase;
 
 public class SearchResultPage extends TestBase{
 	
+	private WebDriver  driver;
 	@FindBy(xpath = "//div[@class='rt-tr-group']")
 	List<WebElement> searchTableRows;
 	
@@ -23,7 +25,8 @@ public class SearchResultPage extends TestBase{
 	private Map<String, String> bookDetails = new HashMap<>();
 	
 	//Initializing page objects
-	public SearchResultPage() {
+	public SearchResultPage(WebDriver  driver) {
+		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
 	

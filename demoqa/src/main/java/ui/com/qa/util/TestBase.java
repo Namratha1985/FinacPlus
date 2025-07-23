@@ -19,7 +19,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class TestBase {
 
-	public static WebDriver driver;
+	private static WebDriver driver;
 	public static Properties prop;
 
 	/**
@@ -39,6 +39,10 @@ public class TestBase {
 			e.getMessage();
 		}
 	}
+	
+	 protected WebDriver getDriver() {
+	        return driver;
+	 }
 	
 	public WebDriver launchBrowser() {
 		String browserName = prop.getProperty("browser");

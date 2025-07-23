@@ -1,6 +1,7 @@
 package ui.com.qa.pages;
 
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -10,6 +11,7 @@ import ui.com.qa.util.TestUtil;
 
 public class LoginPage extends TestBase{
 	
+	private WebDriver  driver;
 	@FindBy(id = "userName")
 	WebElement userName;
 	
@@ -20,7 +22,8 @@ public class LoginPage extends TestBase{
 	WebElement login;
 	
 	//Initializing page objects
-	public LoginPage() {
+	public LoginPage(WebDriver  driver) {
+		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
 
@@ -32,7 +35,7 @@ public class LoginPage extends TestBase{
 		waitForPageToLoad(driver);
 		login.click();
 		waitForPageToLoad(driver);
-		return new UserHomePage();	
+		return new UserHomePage(driver);	
 	}
 	
 }

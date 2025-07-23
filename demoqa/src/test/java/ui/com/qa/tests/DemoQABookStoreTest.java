@@ -21,14 +21,15 @@ import org.apache.logging.log4j.Logger;
 
 public class DemoQABookStoreTest extends TestBase{
 	
+	WebDriver driver = getDriver();
 	static Logger log = LogManager.getLogger(DemoQABookStoreTest.class);
 	HomePage homepage;
 	
 	@BeforeMethod
 	public void setup() {
-		driver = launchBrowser();
+		driver = launchBrowser();		
 		log.info("Browser launched");
-		homepage = new HomePage();
+		homepage = new HomePage(driver);
 	}
 
 	@Test
